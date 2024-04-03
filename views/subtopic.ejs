@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%=title%>
+  </title>
+  <link rel="stylesheet" href="./css/subtopic.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/f9fc69aa86.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="mini-rectangle">
+      <a href="/viewfeed?status=fyp&loguser=<%=loguser.username%>">
+        <img src="./images/the collectors club logo.png" alt="Logo" class="logo-image" id="ind">
+        <p class="logo-text" id="ind">The Collectors Club</p>
+      </a>
+      <div class="search-container">
+        <input type="text" placeholder="Search... " class="search-input">
+        <img src="./images/search.png" alt="Search" class="search-image" onclick="searchImage()">
+      </div>
+      <a href="/profile?userid=<%=loguser._id%>&loguser=<%= loguser._id %>" id="proflink">
+        <img src="./images/<%= loguser.pfp%>" alt="Profile" class="profile-icon">
+      </a>
+    </div>
+
+    <div class="left-side">
+      <div id="buttons">
+        <a href="/viewfeed?status=fyp&loguser=<%=loguser.username%>"><button class="view-feed-button">Home</button></a> <br>
+        <a href="/aboutus?loguser=<%=loguser.username%>"><button class="about-us-button">About Us</button></a>
+        <a href="/rules?loguser=<%=loguser.username%>"><button class="rules-button">Rules</button></a>
+        <%if (loguser.admin===true){%>
+          <a href="/reportv?loguser=<%=loguser.username%>"><button class="reports-button">Reports</button></a> <br>
+          <%} else{%>
+            <a href="/follow?loguser=<%= loguser._id%>"><button class="follow-button">Following/Followers</button></a>
+            <br>
+            <%}%>
+      </div>
+    </div>
+
+    <div class="middle-part">
+      <div id="post">
+        <div class="input-group">
+          <button id="createPostButton">
+            What's on your mind?
+            <img src="./images/add.png" alt="createPostButton" class="create-post">
+          </button>
+        </div>
+      </div>
+
+      <!-- Popup box for creating a post -->
+      <div id="postPopup" class="popup">
+        <div class="popup-content">
+          <span class="close">&times;</span>
+          <form method="POST" action="/upload?loguser=<%=loguser._id%>" enctype="multipart/form-data" id="form">
+            <textarea id="postText" name="caption" placeholder="Description:" required></textarea>
+            <div class="tag-section">
+              <label for="tag">Tag:</label>
+              <select id="tag" name="tag" required>
+                <option value="" selected disabled>Select</option>
+                <option value="#sonnyangel">Sonny Angel</option>
+                <option value="#smiski">Smiski</option>
+                <option value="#popmart">Popmart</option>
+                <option value="#funkopop">Funko Pop</option>
+                <option value="#lego">Lego</option>
+              </select>
+            </div>
+            <div class="button-group">
+              <label for="fileInput" class="image-button-label">
+                <img src="./images/image.png" alt="Upload Image" class="image-button">
+              </label>
+              <input type="file" name="image" id="fileInput" accept="image/*" style="display: none;">
+            </div>
+            <input type="submit" class="enterpost" value="Post">
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <h1><u>
+            <%=tag%>
+        </h1> </u>
+      </div>
+
+      <div id="postPopupView" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <div id="postPopupContent"></div>
+        </div>
+     </div>
+
+     <div class="post">
+      <% if (posts && posts.length > 0) { %>
+        <% posts.forEach(function(post) { %>
+            <div class="p_<%=post._id%>">
+                <div class="profile-info" data-id="<%=post._id%>">
+                    <div class="postid" style="display:none;">
+                        <%=post._id%>
+                    </div>
+                    <div class="userid" style="display:none;">
+                        <%=post.user.username%>
+                    </div>
+                    <a href="/profile?userid=<%= post.user._id %>&loguser=<%= loguser._id %>">
+                        <img src="./images/<%= post.user.pfp %>" alt="Profile" class="profile-picture">
+                    </a>
+                    <div class="user-details">
+                        <div class="user-info">
+                            <h4 class="username">@<%= post.user.username %></h4><br>
+                            <img src="./images/dots.png" alt="Options" class="options-button">
+                            <div class="options-popup" style="display: none;"></div>
+                            <span class="timestamp"><%= formatDate(post.dateposted) %></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="prev1">
+                    <div class="postid" style="display:none;"><%=post._id%></div>
+                    <div class="caption">
+                        <div class="cap">
+                            <p id="captionn" data-postidcap="<%=post._id%>"><%= post.caption %></p>
+                        </div>
+                        <a href="/subtopic?loguser=<%= loguser.username %>&tag=<%= encodeURIComponent(post.tag) %>" id="tag">
+                            <p><%= post.tag %></p> 
+                        </a>
+                        <div class="postprev" data-postprev="<%=post.id%>">
+                        <% if (post.photo) { %> 
+                            <img src="./images/<%= post.photo %>" alt="Post Image" class="post-image">
+                        <% } %>
+                      </div>
+                    </div>
+                </div>
+                <div class="decision-buttons">
+                    <div id="likes">
+                      <i class="fa-regular fa-thumbs-up fa-xl" id="like" data-like="<%=post._id%>" onclick="like(this)"></i><span id="like_<%=post._id%>" class="likebtn"><%=post.likes%></span>
+                        <i class="fa-regular fa-thumbs-down fa-xl" id="dislike" data-dislike="<%=post._id%>" onclick="dislike(this)"></i><span id="dislike_<%=post._id%>" class="dislikebtn"><%=post.dislikes%></span>
+                      </div>
+                </div>
+                <div class="comments">
+                    <div class="postidc" style="display:none;"><%=post._id%></div>
+                    <div class="add-comment"  data-ccom="<%= post._id %>">
+                      <div class="commentTextArea"  data-postidc="<%= post._id %>">
+                        <form id="fcomment" name="comment" method="POST">
+                        <textarea id="newComment" data-postidcom="<%= post._id %>" placeholder="Write your comment here..."></textarea>
+                        <input type="submit" id="postcomment" value="Post">
+                        </form>
+                      </div>
+                      <% if (post.comments && post.comments.length > 0) { %>
+                        <% post.comments.forEach(function(comment) { %>
+                          <div class="commarea">
+                          <a href="/profile?userid=<%= comment.user._id %>&loguser=<%= loguser._id %>" id="comlink">
+                          <p><span class="comid" data-ucom="<%=comment.user._id%>"><%= comment.user.username %></span></a>:<span class="ccom"> <%= comment.comment %></span>
+                          <% if (comment.user.username === loguser.username) {%>
+                            <img src="./images/dots.png" alt="Options" class="options-button-com">
+                            <div class="options-popup-com" style="display: none;"></div>
+                          <%}%>
+                          <p id="datecom"><%=formatDate(comment.date)%></p></p>
+                        </div>
+                        <% }); %>
+                      <% } else { %>
+                      <% } %>
+                        <!-- <button class="showcom" data-postid="<%= post._id %>">Add a Comment</button> -->
+                       
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    <% } %>
+    </div>
+
+      <div class="right-side">
+        <div>
+          <div id="buttonsr">
+            <h3>Channels</h3>
+            <a href="/subtopic?loguser=<%=loguser.username%>&tag=<%=encodeURIComponent('#sonnyangel')%>"><button
+                class="channel-button sonny-angel-button">Sonny Angel</button></a> <br>
+            <a href="/subtopic?loguser=<%=loguser.username%>&tag=<%=encodeURIComponent('#smiski')%>"><button
+                class="channel-button smiski-button">Smiski</button></a> <br>
+            <a href="/subtopic?loguser=<%=loguser.username%>&tag=<%=encodeURIComponent('#popmart')%>"><button
+                class="channel-button popmart-button">Pop Mart</button></a> <br>
+            <a href="/subtopic?loguser=<%=loguser.username%>&tag=<%=encodeURIComponent('#funkopop')%>"><button
+                class="channel-button funko-pop-button">Funko Pop</button></a> <br>
+            <a href="/subtopic?loguser=<%=loguser.username%>&tag=<%=encodeURIComponent('#lego')%>"><button
+                class="channel-button lego-button">Lego</button></a> <br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/genview.js"></script>
+    <script src="./js/comment.js"></script>
+</body>
+
+</html>

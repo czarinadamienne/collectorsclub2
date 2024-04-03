@@ -1,0 +1,529 @@
+body {
+    background-color: #7EB3DF;
+    margin: 0;
+    padding: 0;
+    font-family: 'Pixelify Sans', sans-serif;
+    overflow: hidden; 
+}
+
+.container {
+    position: relative; 
+    width: 50%;
+    height: 142px;
+    margin: 5% auto; 
+    padding: 22% 20% 10.4% 20%;
+    background-color: #FFFFFF; 
+    box-shadow: 0 0 1% rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 2px solid #000000;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-top: 4.6%;
+}
+
+.text {
+    position: relative;
+    top: -70px;
+    left: -40px;
+    margin: 10px;
+}
+
+.mini-rectangle {
+    position: absolute;
+    top: 4%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 100%; 
+    height: 50px; 
+    background-color: #AFBDC8; 
+    border: 2px solid #000000; 
+}
+
+.logo-image {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%); 
+    left: 1%; 
+    height: 50px; 
+    width: 50px;
+}
+
+.logo-text {
+    position: absolute;
+    top: 15%; 
+    transform: translateY(-50%); 
+    left: 70px; 
+    font-size: 20px; 
+    font-weight: bold; 
+}
+
+.about-us-button {
+    position: absolute;
+    top: 3%;
+    left: 300px;
+    background-color: #F2E897; 
+    color: white; 
+}
+
+.rules-button {
+    position: absolute;
+    top: 3%;
+    left: 440px;
+    background-color: #D897F2; 
+    color: white; 
+}
+
+.button-container {
+    position: absolute;
+    top: 50%; 
+    left: 85%; 
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 18px;
+    font-family: 'Pixelify Sans', sans-serif;
+    border-radius: 5px;
+    border: 2px solid black; 
+}
+
+.profile-button {
+    background-color: #EF9BEB; 
+    color: white;
+}
+
+.logout-button {
+    background-color: #65E7CF; 
+    color: white;
+    white-space: nowrap;
+}
+
+
+.profile-data {
+    position: absolute;
+    top: 60%; 
+    left: 5%; 
+    transform: translateY(-50%);
+    z-index: 10; 
+}
+
+.profile-inner {
+    display: flex; 
+    align-items: center; 
+}
+
+.profile-photo {
+    border-radius: 50%; 
+    width: 200px; 
+    height: 200px; 
+    margin-top: -200px;
+}
+
+.profile-data h1 {
+    margin-left: 20px; 
+    margin-top: -300px;
+}
+
+.user-details {
+    margin-left: -150px; 
+    text-align: left;
+    margin-top: -30%;
+}
+
+.user-details p {
+    margin: 5px 0; 
+}
+
+.action-buttons {
+    margin-top: 20px;
+    margin-left: 220px;
+}
+
+.action-buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: #65E7CF;
+    color: white;
+}
+
+.edit-button {
+    background-color: #EF9BEB; 
+}
+
+.delete-button {
+    background-color: #FF0000 !important;
+}
+
+.separator {
+    margin: 20px auto;
+    width: 260%; 
+    border: 1px solid #000000; 
+}
+
+.profile-data h2 {
+    margin-left: -250px; 
+}
+
+#ind{
+    color: black;
+}
+
+#ind:active{
+    color: black;
+}
+
+.options-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+}
+
+.options-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 200px; 
+}
+
+.options-popup-content {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.options-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #888;
+}
+
+.options-close:hover {
+    color: #333; 
+}
+
+.tag-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.tag-section label {
+    margin-right: 10px;
+}
+
+.button-group {
+    position: absolute;
+    top: 3px;
+    right: 60px; 
+    cursor: pointer;
+}
+
+#postPopupView {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+#postPopupView .popup-content {
+    background-color: #fefefe;
+    margin: 1% auto 0;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 750px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.profile-picture {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    margin-right: 10px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-top: 160px;
+    margin-left: 150px;
+}
+
+.username {
+    margin: 0;
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.timestamp {
+    font-size: 9px;
+    margin-top: 50px;
+    margin-left: -91%;
+    color: #888;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start; 
+}
+
+.options-button {
+    margin-left: 420px;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.options-menu {
+    position: absolute;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.options-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.options-menu ul li {
+    margin-bottom: 5px;
+}
+
+.options-menu ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.options-menu {
+    position: absolute;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.options-buttons button {
+    margin-right: 5px; 
+}
+
+.options-buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.caption {
+    margin: 0;
+    text-align: left;
+    margin-left: 30%;
+}
+
+.post-tag {
+    color: blue; 
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.post-tag:hover {
+    color: red; 
+}
+
+.decision-buttons {
+    margin: 0;
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 1%;
+    position: flex;
+}
+
+.comments {
+    margin: 0;
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 1%;
+}
+
+.post-image {
+    max-width: 200px; 
+    max-height: 200px; 
+    margin-top: 10px;
+}
+
+.profile-info,
+.caption,
+.decision-buttons,
+.comments {
+    padding: 6px;
+    width: 92%;
+    background-color: #E5E1E1; 
+}
+
+.profile-info {
+    margin-left: 12px;
+    margin-bottom: 0px; 
+}
+
+.caption {
+    margin-left: 12px;
+    margin-bottom: 0px; 
+}
+
+.decision-buttons,
+.comments {
+    margin-left: 12px;
+    margin-top: 0px; 
+}
+
+.post {
+    margin-top: 100px; 
+    width: 90%; 
+    margin-left: -170px; 
+    z-index: 1; 
+    text-align: left;
+}
+
+#text{
+    margin-left:-3%;
+}
+#likes{
+    margin-top: 1%;
+    margin-left: 1%;
+    display: flex;
+}
+
+.fa-thumbs-down{
+    margin-left: 3%;
+}
+
+.likebtn{
+    margin-left: 2%;
+    font-size: x-large;
+    margin-top: -2%;
+}
+
+.dislikebtn{
+    margin-left: 2%;
+    font-size: x-large;
+    margin-top: -2%;
+}
+#comlink:active{
+    font-weight: bold;
+    color: black;
+}
+
+.add-comment {
+    padding: 10px;
+}
+
+.add-comment button {
+    padding: 5px 10px;
+    background-color: lightpink;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: -10px;
+    cursor: pointer;
+}
+
+#commentTextArea {
+    margin-top: 10px;
+}
+
+#commentTextArea textarea {
+    width: 100%;
+    height: 50px;
+    resize: vertical;
+    margin-bottom: 5px;
+}
+
+#newComment{
+    width: 90%;
+}
+
+#postcomment {
+    padding: 5px 10px;
+    background-color: lightpink;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comments a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#tag{
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+#tag:visited{
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+#followmsg{
+    text-align: center;
+    margin-top: 30%;
+}
+
+#datecom{
+    font-size: 11px;
+    transform: translateY(-100%);
+    color: #888;
+}
+.options-button-com{
+    float: right;
+    width: 4%;
+    height: 4%;
+}
+.profile-details{
+    margin-left: -90px; 
+    text-align: left;
+    margin-top: -30%;
+}

@@ -1,0 +1,148 @@
+body {
+    background-color: #7EB3DF;
+    margin: 0;
+    padding: 0;
+    font-family: 'Pixelify Sans', sans-serif;
+    overflow: hidden; 
+}
+
+.container {
+    position: relative; 
+    width: 50%;
+    height: 142px;
+    margin: 5% auto; 
+    padding: 22% 20% 9.8% 20%;
+    background-color: #FFFFFF; 
+    box-shadow: 0 0 1% rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 2px solid #000000;
+    margin-top: 5.4%;
+}
+
+.text {
+    position: relative; 
+    top: -140%; 
+    left: -5%;
+    margin: 10px;
+}
+
+.login-form {
+    margin-top: -180px; 
+    margin-left: 15%;
+    text-align: left; 
+}
+
+.login-form label {
+    font-size: 18px;
+    display: inline-block; 
+    width: 200px; 
+    margin-right: -5%; 
+}
+
+.login-form input {
+    width: calc(60% - 180px); 
+    padding: 8px;
+    margin-bottom: 10px;
+    vertical-align: middle; 
+}
+
+.enter-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: #65E7CF;
+    color: white;
+    float: right;
+    margin-right: 38%; 
+    margin-top: 30px;
+}
+
+.mini-rectangle {
+    position: absolute;
+    top: 2%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 100%; 
+    height: 8%; 
+    background-color: #AFBDC8; 
+    border: 2px solid #000000; 
+}
+
+.logo-image {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%); 
+    left: 1%; 
+    height: 50px; 
+    width: 50px;
+}
+
+.logo-text {
+    position: absolute;
+    top: 15%; 
+    transform: translateY(-50%); 
+    left: 70px; 
+    font-size: 20px; 
+    font-weight: bold; 
+}
+
+.about-us-button {
+    position: absolute;
+    top: 3%;
+    left: 300px;
+    background-color: #F2E897; 
+    color: white; 
+}
+
+.rules-button {
+    position: absolute;
+    top: 3%;
+    left: 440px;
+    background-color: #D897F2; 
+    color: white; 
+}
+
+.button-container {
+    position: absolute;
+    top: 50%; 
+    left: 85%; 
+    transform: translate(-50%, -50%);
+    position: flex;
+    width: 19.5%;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 18px;
+    font-family: 'Pixelify Sans', sans-serif;
+    border-radius: 5px;
+    border: 2px solid black; 
+}
+
+.login-button {
+    background-color: #EF9BEB; 
+    color: white;
+    
+}
+
+.signup-button {
+    background-color: #65E7CF; 
+    color: white;
+}
+#ind{
+    color: black;
+}
+
+#ind:active{
+    color: black;
+}
+
+#login-success-message {
+    color: green;
+}
+
+#invalid-credentials-message {
+    color: red;
+}

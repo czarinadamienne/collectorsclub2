@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%=title%></title>
+<link rel="stylesheet" href="./css/follow.css"> 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="mini-rectangle">
+        <a href="/viewfeed?status=fyp&loguser=<%=loguser.username%>">
+            <img src="./images/the collectors club logo.png" alt="Logo" class="logo-image" id="ind">
+            <p class="logo-text" id="ind">The Collectors Club</p>
+        </a>
+        <a href="/aboutus?loguser=<%=loguser.username%>"><button class="about-us-button">About Us</button></a>
+        <a href="/rules?loguser=<%=loguser.username%>"><button class="rules-button">Rules</button></a>
+        <div class="button-container">
+            <a href="/profile?userid=<%=loguser._id%>&loguser=<%= loguser._id %>"><button class="profile-button">Profile</button></a>
+            <a href="/logout?loguser=<%=loguser._id%>"> 
+                <button class="logout-button">Log Out</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="following-section">
+        <h2>FOLLOWING</h2>
+        <hr>
+        <ul class="following-list">
+            <% if (loguser.following.length === 0) { %>
+                <p>No following yet.</p>
+            <% } else { %>
+                <% loguser.following.forEach(function(ffuser) { %>
+                    <li>
+                        <a href="/profile?userid=<%= ffuser.user._id %>&loguser=<%= loguser._id %>" class="profile-link">
+                            <img src="./images/<%= ffuser.user.pfp %>" alt="Profile" class="profile-picture">
+                            <h4 class="username">@<%= ffuser.user.username %></h4>
+                        </a>
+                    </li>
+                    <br>
+                <% }) %>
+            <% } %>
+        </ul>
+    </div>
+
+    <div class="followers-section">
+        <h2>FOLLOWERS</h2>
+        <hr>
+        <ul class="followers-list">
+            <% if (loguser.followers.length === 0) { %>
+                <p>No followers yet.</p>
+            <% } else { %>
+                <% loguser.followers.forEach(function(ffuser) { %>
+                    <li>
+                        <a href="/profile?userid=<%= ffuser.user._id %>&loguser=<%= loguser._id %>" class="profile-link">
+                            <img src="./images/<%= ffuser.user.pfp %>" alt="Profile" class="profile-picture">
+                            <h4 class="username">@<%= ffuser.user.username %></h4>
+                        </a>
+                    </li>
+                    <br>
+                <% }) %>
+            <% } %>
+            
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

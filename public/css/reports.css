@@ -1,0 +1,452 @@
+body {
+    background-color: #7EB3DF;
+    margin: 0;
+    padding: 0;
+    font-family: 'Pixelify Sans', sans-serif;
+    overflow: hidden; 
+}
+
+.container {
+    position: relative; 
+    width: 50%;
+    height: 150px;
+    margin: 5% auto; 
+    padding: 22% 20% 9.8% 20%;
+    background-color: #FFFFFF; 
+    box-shadow: 0 0 1% rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 2px solid #000000;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 4.7%;
+}
+
+.mini-rectangle {
+    position: absolute;
+    top: 4%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 100%; 
+    height: 50px; 
+    background-color: #AFBDC8; 
+    border: 2px solid #000000; 
+    z-index: 1;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    flex: 1;
+    padding-right: 40px; 
+}
+
+.search-image {
+    position: absolute;
+    right: 28%; 
+    cursor: pointer;
+    width: 2%; 
+    margin-top: 0%;
+    height: auto; 
+}
+
+input[type="text"] {
+    width: 40%; 
+    height: 30px; 
+    padding-left: 20px; 
+    font-size: 16px; 
+    margin-top: -17px; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+.profile-icon {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    margin-top: 25px;
+    margin-left: -300px;
+    top: 50%; 
+    transform: translateY(-100%);
+}
+
+#proflink{
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    margin-top: 25px;
+    margin-left: 1500px; 
+    top: 50%; 
+    transform: translateY(-50%);
+}
+
+.profile-photo {
+    width: 100px; 
+    height: 100px; 
+    border-radius: 10px; 
+}
+
+.logo-image {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%); 
+    left: 1%; 
+    height: 50px; 
+    width: 50px;
+}
+
+.logo-text {
+    position: absolute;
+    top: 15%; 
+    transform: translateY(-50%); 
+    left: 70px; 
+    font-size: 20px; 
+    font-weight: bold; 
+}
+
+.view-feed-button {
+    margin-top: 10px; 
+    width: 250px;
+    background-color: #79EEF0;
+}
+
+.about-us-button {
+    background-color: #F2E897; 
+    color: black; 
+    margin-top: 20px; 
+    width: 250px;
+}
+
+.rules-button {
+    background-color: #D897F2; 
+    color: black; 
+    margin-top: 20px; 
+    width: 250px;
+}
+
+.reports-button {
+    background-color: #9fe7c5; 
+    color: black; 
+    margin-top: 20px; 
+    width: 250px;
+}
+
+.middle-part button {
+    margin-top: 10px;
+}
+
+.middle-part textarea {
+    width: 90%; 
+}
+
+
+.tag-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.tag-section label {
+    margin-right: 10px;
+}
+
+.button-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.image-button-label {
+    margin-right: 10px;
+}
+
+.image-button {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.middle-part > div:first-child {
+    margin-top: -28%;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.profile-picture {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    margin-right: 10px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start; 
+}
+
+.username {
+    margin: 0;
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.timestamp {
+    font-size: 9px;
+    display: inline;
+    margin-top: 50px;
+    margin-left: -70px;
+    color: #888;
+}
+
+.user-buttons{
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start; 
+}
+
+.unreport-button {
+    background-color: lightpink; 
+    margin-right: 10px;
+    margin-left: 300px;
+}
+
+.delete-button {
+    background-color: lightpink; 
+}
+
+.caption {
+    margin: 0;
+    text-align: left;
+    margin-left: 30%;
+}
+
+.post-tag {
+    color: blue; 
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.post-tag:hover {
+    color: red; 
+}
+
+.comments {
+    margin: 0;
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 1%;
+}
+
+.channel-button {
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.left-side {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    transform: translate(-50%, -48%); 
+    width: 300px; 
+    height: 900%; 
+    background-color: #F7F7F7;
+    border: 1px solid dimgray;
+    border-bottom: none;
+    margin-left: 10%;
+    margin-top: 25%;
+}
+
+#buttons{
+    position: grid;
+    align-items: top;
+    margin-top: 840%;  
+    margin-left: 7.5%; 
+}
+
+#buttonsr{
+    position: grid;
+    align-items: top;
+    margin-top: 840%;   
+}
+
+.right-side {
+    position: absolute;
+    top: 54%; 
+    right: -12%; 
+    transform: translate(-50%, -48%); 
+    width: 300px; 
+    height: 905%; 
+    background-color: #F7F7F7;
+    border: 1px solid dimgray;
+    border-bottom: none;
+}
+
+.channel-button {
+    margin-top: 20px; 
+    width: 250px;
+}
+
+.sonny-angel-button {
+    background-color: #F4BCE3; 
+}
+
+.smiski-button {
+    background-color: #D5F4BC; 
+}
+
+.popmart-button {
+    background-color: #C8AFA0; 
+}
+
+.funko-pop-button {
+    background-color: #B5A0C8; 
+}
+
+.lego-button {
+    background-color: #EAE39C; 
+}
+
+
+.post-image {
+    max-width: 200px; 
+    max-height: 200px; 
+    margin-top: 10px;
+}
+
+.profile-info,
+.caption,
+.comments {
+    padding: 6px;
+    width: 92%;
+    background-color: #E5E1E1; 
+}
+
+.profile-info {
+    margin-left: 12px;
+    margin-bottom: 0px; 
+}
+
+.caption {
+    margin-left: 12px;
+    margin-bottom: 0px; 
+}
+
+.comments {
+    margin-left: 12px;
+    margin-top: 0px; 
+}
+#ind{
+    color: black;
+}
+
+#ind:active{
+    color: black;
+}
+
+#post{
+    align-content: center;
+    margin-top: -30%;
+}
+
+#text{
+    margin-left:-3%;
+}
+
+#spam{
+    background-image: url('./images/report.png');
+    width: 30px; 
+    height: 30px; 
+    cursor: pointer;
+    background-size: 30px 30px;
+    background-position: 0px 0px;
+    margin-top: -31px;
+    margin-left: 70px;
+}
+#spam:hover{
+    background-image: url('./images/reporthover.png');
+    width: 30px; 
+    height: 30px; 
+    cursor: pointer;
+    background-size: 30px 30px;
+    background-position: 0px 0px;
+    margin-top: -31px;
+    margin-left: 70px;
+}
+#comlink{
+    font-weight: bold;
+    color: black;
+}
+
+#comlink:active{
+    font-weight: bold;
+    color: black;
+}
+
+#commentTextArea {
+    margin-top: 10px;
+}
+
+#commentTextArea textarea {
+    width: 100%;
+    height: 50px;
+    resize: vertical;
+    margin-bottom: 5px;
+}
+
+#commentTextArea button {
+    padding: 5px 10px;
+    background-color: lightpink;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comments a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#tag{
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+#tag:visited{
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+#followmsg{
+    text-align: center;
+    margin-top: 30%;
+}
+
+#datecom{
+    font-size: 11px;
+    transform: translateY(-100%);
+    color: #888;
+}

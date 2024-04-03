@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="./css/reports.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+
+     <div class="mini-rectangle">
+        <a href="/viewfeed?status=fyp&loguser=<%=loguser.username%>">
+            <img src="./images/the collectors club logo.png" alt="Logo" class="logo-image" id="ind">
+            <p class="logo-text" id="ind">The Collectors Club</p>
+    </a>
+        <div class="search-container">
+            <form action="/search?loguser=<%= loguser.username %>" method="POST">
+                <input type="text" name="search" placeholder="Search..." class="search-input">
+                <button type="submit">
+                  <img src="./images/search.png" alt="Search" class="search-image">
+                </button>
+            </form>
+    </div>
+    <a href="/profile?userid=<%=loguser._id%>&loguser=<%= loguser._id %>" id="proflink">
+        <img src="./images/<%= loguser.pfp%>" alt="Profile" class="profile-icon">
+    </a>
+    </div>
+
+        <div class="left-side">
+            <div id="buttons">
+                <a href="/viewfeed?status=fyp&loguser=<%=loguser.username%>"><button class="view-feed-button">Home</button></a> <br>
+                    <a href="/aboutus?loguser=<%=loguser.username%>"><button class="about-us-button">About Us</button></a>
+                    <a href="/rules?loguser=<%=loguser.username%>"><button class="rules-button">Rules</button></a>
+                    <a href="/reportv?loguser=<%=loguser.username%>"><button class="reports-button">Reports</button></a> <br>
+            </div>
+        </div>
+
+        <div class="middle-part">
+
+            <div class="post">
+                <% if (posts && posts.length > 0) { %>
+                 <% posts.forEach(function(post) { %>
+                    <div class="profile-info">
+                        <div class="postid" style="display:none;"><%=post._id%></div>
+                        <div class="userid" style="display:none;"><%=post.user.username%></div>
+                     <a href="/profile?userid=<%= post.user._id %>&loguser=<%= loguser._id %>"><img src="./images/<%= post.user.pfp %>" alt="Profile" class="profile-picture"></a>
+                        <div class="user-details">
+                            <div class="user-info">
+                                <h4 class="username">@<%= post.user.username %></h4><br> 
+                                <span class="timestamp"><%= formatDate(post.dateposted) %></span>
+                            </div>
+                            <div class="user-buttons">
+                                <button class="unreport-button">Unreport Post</button>
+                                <button class="delete-button">Delete Post</button>
+                            </div>
+                        </div>
+                    </div>
+                                                           
+                            <div id="prev1">
+                              <div class="postid" style="display:none;"><%=post._id%></div>
+                                <div class="caption">
+                                    <p> <%= post.caption %></p> 
+                                    <a href="/subtopic?loguser=<%= loguser.username %>&tag=<%= encodeURIComponent(post.tag) %>" id="tag"><p><%= post.tag %></p></a>
+                                    <% if (post.photo) { %>
+                                        <img src="./images/<%= post.photo %>" alt="Post Image" class="post-image">
+                                    <% } %>
+                                </div>
+                            </div>
+                            
+                            <div class="comments">
+                        <% if (post.comments && post.comments.length > 0) { %>
+                          <% post.comments.forEach(function(comment) { %>
+                            <div class="commarea">
+                            <a href="/profile?userid=<%= comment.user._id %>&loguser=<%= loguser._id %>" id="comlink">
+                            <p><span class="comid" data-ucom="<%=comment.user._id%>"><%= comment.user.username %></span></a>:<span class="ccom"> <%= comment.comment %></span>
+                            <% if (comment.user.username === loguser.username) {%>
+                              <img src="./images/dots.png" alt="Options" class="options-button-com">
+                              <div class="options-popup-com" style="display: none;"></div>
+                            <%}%>
+                            <p id="datecom"><%=formatDate(comment.date)%></p></p>
+                          </div>
+                          <% }); %>
+                        <% } else { %>
+                        <% } %>
+                          <!-- <button class="showcom" data-postid="<%= post._id %>">Add a Comment</button> -->
+                         
+                      </div>
+                  </div>
+              </div>
+          <% }); %>
+      <% } %>
+      <div class="right-side">
+        <div>
+          <div id="buttonsr">
+            <h3>Channels</h3>
+            <a href="/subtopic?loguser=<%=loguser.username%>&tag=<%=encodeURIComponent('#sonnyangel')%>"><button
+                class="channel-button sonny-angel-button">Sonny Angel</button></a> <br>
+            <a href="/subtopic?loguser=<%=loguser.username%>&tag=<%=encodeURIComponent('#smiski')%>"><button
+                class="channel-button smiski-button">Smiski</button></a> <br>
+            <a href="/subtopic?loguser=<%=loguser.username%>&tag=<%=encodeURIComponent('#popmart')%>"><button
+                class="channel-button popmart-button">Pop Mart</button></a> <br>
+            <a href="/subtopic?loguser=<%=loguser.username%>&tag=<%=encodeURIComponent('#funkopop')%>"><button
+                class="channel-button funko-pop-button">Funko Pop</button></a> <br>
+            <a href="/subtopic?loguser=<%=loguser.username%>&tag=<%=encodeURIComponent('#lego')%>"><button
+                class="channel-button lego-button">Lego</button></a> <br>
+          </div>
+
+        </div>
+      </div>
+      </div>
+             
+           
+    </div>
+<script src="./js/reportv.js"></script>
+<script src="./js/genview.js"></script>
+<script src="./js/comment.js"></script>
+</body>
+</html>
