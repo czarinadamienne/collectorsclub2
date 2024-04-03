@@ -21,7 +21,7 @@ To run Application:
 3. After, type  `nodemon server` to start hosting the website
 4. In the browser's search bar, type  `localhost:3000` to access the website
 
-NOTE: a .env file may be needed to access the Mongo Database and the session
+NOTE: a .env file may be needed to access the Mongo Database and the session cookies
 
 
 # Developed By:
