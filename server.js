@@ -320,21 +320,25 @@ app.get('/profile', (req, res) => {
     }
 });
 
-
-
 app.delete('/del', (req, res) => {
     const deluser = req.body.user;
-    console.log(deluser);
-    User.findOneAndDelete({ username: deluser })
+    
+    User.findOne({ username: deluser })
         .then(duser => {
             if (!duser) {
-                res.status(404).json({ error: 'User not found' });
-            } else {
-                res.status(200).json({ message: 'User deleted successfully' });
+                return res.status(404).json({ error: 'User not found' });
             }
-        }).catch(err => {
+            return Post.deleteMany({ user: duser._id });
+        })
+        .then(() => {
+            return User.findOneAndDelete({ username: deluser });
+        })
+        .then(() => {
+            res.status(200).json({ message: 'User and associated posts deleted successfully' });
+        })
+        .catch(err => {
             console.error(err);
-            res.status(500).json({ error: 'Error deleting user' });
+            res.status(500).json({ error: 'Error deleting user and associated posts' });
         });
 });
 

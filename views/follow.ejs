@@ -35,10 +35,15 @@
             <% } else { %>
                 <% loguser.following.forEach(function(ffuser) { %>
                     <li>
-                        <a href="/profile?userid=<%= ffuser.user._id %>&loguser=<%= loguser._id %>" class="profile-link">
-                            <img src="./images/<%= ffuser.user.pfp %>" alt="Profile" class="profile-picture">
-                            <h4 class="username">@<%= ffuser.user.username %></h4>
-                        </a>
+                        <% if(ffuser.user && ffuser.user.username){ %>
+                            <a href="/profile?userid=<%= ffuser.user._id %>&loguser=<%= loguser._id %>" class="profile-link">
+                                <img src="./images/<%= ffuser.user.pfp %>" alt="Profile" class="profile-picture">
+                                <h4 class="username">@<%= ffuser.user.username %></h4>
+                            </a>
+                        <%} else{%>
+                            <img src="./images/default.png" alt="Profile" class="profile-picture">
+                            <h4 class="username">@deleted account</h4>
+                        <%}%>
                     </li>
                     <br>
                 <% }) %>
@@ -55,10 +60,15 @@
             <% } else { %>
                 <% loguser.followers.forEach(function(ffuser) { %>
                     <li>
-                        <a href="/profile?userid=<%= ffuser.user._id %>&loguser=<%= loguser._id %>" class="profile-link">
-                            <img src="./images/<%= ffuser.user.pfp %>" alt="Profile" class="profile-picture">
-                            <h4 class="username">@<%= ffuser.user.username %></h4>
-                        </a>
+                        <% if(ffuser.user && ffuser.user.username){ %>
+                            <a href="/profile?userid=<%= ffuser.user._id %>&loguser=<%= loguser._id %>" class="profile-link">
+                                <img src="./images/<%= ffuser.user.pfp %>" alt="Profile" class="profile-picture">
+                                <h4 class="username">@<%= ffuser.user.username %></h4>
+                            </a>
+                        <%} else{%>
+                            <img src="./images/default.png" alt="Profile" class="profile-picture">
+                            <h4 class="username">@deleted account</h4>
+                        <%}%>
                     </li>
                     <br>
                 <% }) %>
