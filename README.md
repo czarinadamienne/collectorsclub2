@@ -16,11 +16,13 @@ Like, Dislike, and Reporting: Users may choose to like or dislike other user pos
 
 To run Application:
 
-(insert steps)
+1. Download all the files in the repository
+2. In powershell, type `npm install` to install all the needed NPM packages
+3. After, type  `nodemon server` to start hosting the website
+4. In the browser's search bar, type  `localhost:3000` to access the website
 
-To access MongoDB Atlas:
+NOTE: a .env file may be needed to access the Mongo Database and the session
 
-(insert steps)
 
 # Developed By:
 Ang, Czarina Damienne N.
